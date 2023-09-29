@@ -13,9 +13,11 @@ export function useInterchainLCDClient() {
 
   useEffect(() => {
     if (connected) {
-      station.chainID.set(getChainID(connected.network))
+      if (station.chainID.get() !== getChainID(connected.network)) {
+        station.lcd.set(new InterchainLCDClient(network))
+        station.chainID.set(getChainID(connected.network))
+      }
       station.address.set(connected.addresses[getChainID(connected.network)])
-      station.lcd.set(new InterchainLCDClient(network))
     } else {
       station.chainID.set("phoenix-1")
       getInitialConfig().then((defaultNetworks) => {
@@ -37,7 +39,6 @@ export function useQueries() {
   const lcd = station.lcd.use()
   const chainID = station.chainID.use()
   const address = station.address.use()
-  console.log(chainID)
   // const address = "terra1j27nm2gjm0m4lsye8lspa46rax0rw4fge9awrs"
 
   const fetchTxs = async () => {
@@ -53,7 +54,7 @@ export function useQueries() {
   useEffect(() => {
     if (lcd && Object.keys(lcd.config).includes(chainID)) {
       lcd.bank.total(chainID, { "pagination.limit": 999 }).then(([coins]) => station.data.balance.total.set(coins._coins))
-      address && lcd.bank.spendableBalances(address).then(([coins]) => (console.log(coins), station.data.bank.balance.set(coins)))
+      address && lcd.bank.spendableBalances(address).then(([coins]) => station.data.bank.balance.set(coins))
 
       lcd.gov.proposals(chainID, { "pagination.limit": 100, proposal_status: 2 }).then(([proposals]) => station.data.govern.proposals.set(proposals))
       lcd.gov.parameters(chainID).then((parameters) => station.data.govern.parameters.set(parameters))
