@@ -16,11 +16,7 @@ import Luna from "../coins/Luna"
 import Usdc from "../coins/Usdc"
 
 export default function Swap() {
-  return (
-    <AnimatedPage name="Swap" scrollPage={false}>
-      {station.Hud.Swap.active.use() && <Page />}
-    </AnimatedPage>
-  )
+  return <AnimatedPage name="Swap">{station.Hud.Swap.active.use() && <Page />}</AnimatedPage>
 }
 
 function Page() {
@@ -38,10 +34,10 @@ function Page() {
         <animated.group rotation={tornado.to((v) => [0, v, 0])}>
           {
             {
-              mainnet: <MainCoins />,
-              testnet: <MainCoins />,
-              classic: <ClassicCoins spring={rotation} />,
-              localterra: <MainCoins />,
+              mainnet: <Main />,
+              testnet: <Main />,
+              classic: <Classic spring={rotation} />,
+              localterra: <Main />,
             }[connected?.network || "mainnet"]
           }
           <Revert
@@ -57,7 +53,7 @@ function Page() {
   )
 }
 
-function MainCoins() {
+function Main() {
   return (
     <>
       <Luna position={[-200, 0, 0]} scale={130} />
@@ -66,7 +62,7 @@ function MainCoins() {
   )
 }
 
-function ClassicCoins({ spring }) {
+function Classic({ spring }) {
   const [activeFlag, setActiveFlag] = useState(0)
   return (
     <>

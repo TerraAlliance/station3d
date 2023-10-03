@@ -21,7 +21,7 @@ export default function SideWallet() {
   const [show, setShow] = useState(true)
   const size = useWindowSize()
   const connected = status === "CONNECTED"
-  const x = -size.width / 2 + 200
+  const x = -size.width / 2 + 150
 
   const [play] = useSound(sound, { volume: station.volume.use() })
 

@@ -12,16 +12,16 @@ import Assets from "./Assets"
 import Send from "./Send"
 
 export default function Wallet() {
-  const txs = station.data.tx.history.use()
   return (
     <>
-      <AnimatedPage name="Wallet">{station.Hud.Wallet.active.use() && <Page txs={txs} />}</AnimatedPage>
-      <AnimatedPage name="Send" scrollPage={false}>{station.Hud.Send.active.use() && <Send />}</AnimatedPage>
+      <AnimatedPage name="Wallet">{station.Hud.Wallet.active.use() && <Page />}</AnimatedPage>
+      <AnimatedPage name="Send">{station.Hud.Send.active.use() && <Send />}</AnimatedPage>
     </>
   )
 }
 
-function Page({ txs }) {
+function Page() {
+  const txs = station.data.tx.history.use()
   const size = useWindowSize()
   const [location, setLocation] = useState("assets")
 
