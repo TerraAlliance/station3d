@@ -2,13 +2,16 @@ import { useEffect } from "react"
 import { useSpringValue, animated } from "@react-spring/three"
 
 import { station } from "../../state"
-;["History", "Wallet", "Stake", "Govern", "VotingHistory", "Send"].forEach((page) => {
-  station.Hud[page].scroll.set(0)
-})
+
+station.Hud.History.scroll.set(0)
+station.Hud.Wallet.scroll.set(0)
+station.Hud.Stake.scroll.set(0)
+station.Hud.Govern.scroll.set(0)
+station.Hud.VotingHistory.scroll.set(0)
 
 window.onwheel = (ev) => {
   station.Hud[station.Hud.event.get()].scroll.set((prev) => Math.max(prev + ev.deltaY / 2, 0))
-console.log(ev.deltaY)
+  console.log(ev.deltaY)
   switch (station.Hud.event.get()) {
     case "Validator":
       station.Hud.event.set("Stake")
@@ -27,7 +30,7 @@ console.log(ev.deltaY)
   }
 }
 
-export default function AnimatedPage({ name, children, scrollPage = true }) {
+export default function AnimatedPage({ name, children }) {
   const event = station.Hud.event.use()
   const scroll = station.Hud[name].scroll.use()
 
@@ -36,9 +39,9 @@ export default function AnimatedPage({ name, children, scrollPage = true }) {
   useEffect(() => {
     if (event === name) {
       station.Hud[name].active.set(true)
-      position.start(scrollPage ? scroll || 0 : 0)
+      position.start(scroll || 0)
     } else {
-      position.start((scrollPage ? scroll || 0 : 0) - 1200).then(() => station.Hud[name].active.set(false))
+      position.start((scroll || 0) - 1200).then(() => station.Hud[name].active.set(false))
     }
   }, [event, scroll, children])
 

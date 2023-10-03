@@ -13,7 +13,7 @@ export default function Navigation() {
   const touch = "ontouchstart" in document.documentElement
   const [page, setPage] = useState(0)
   const size = useWindowSize()
-  const x = size.width / 2 - 200
+  const x = size.width / 2 - 150
 
   const [play] = useSound(sound, { volume: station.volume.use() })
 
@@ -25,15 +25,14 @@ export default function Navigation() {
             <Satellite position={[x, 400, 0]} rotation={[0, 0, (7 / 4) * Math.PI]} scale={3} />
           </Suspense>
           <Suspense>
-            <Button text='Home' position={[x, 210, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Home"), play())} />
-            <Button text='Wallet' position={[x, 150, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Wallet"), play())} />
-            <Button text='Swap' position={[x, 90, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Swap"), play())} />
-            <Button text='Stake' position={[x, 30, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Stake"), play())} />
-            <Button text='Burn' position={[x, -30, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Burn"), play())} />
-            <Button text='Govern' position={[x, -90, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Govern"), play())} />
-            <Button text='Feed' position={[x, -150, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Feed"), play())} />
-            <Button text='Theme' position={[x, -210, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Theme"), play())} />
-            <Button text='under development' position={[x, -400, 0]} scale={25} onClick={() => null} />
+            <Button text="Home" position={[x, 180, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Home"), play())} />
+            <Button text="Wallet" position={[x, 120, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Wallet"), play())} />
+            <Button text="Swap" position={[x, 60, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Swap"), play())} />
+            <Button text="Stake" position={[x, 0, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Stake"), play())} />
+            <Button text="Burn" position={[x, -60, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Burn"), play())} />
+            <Button text="Govern" position={[x, -120, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Govern"), play())} />
+            <Button text="Theme" position={[x, -180, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Theme"), play())} />
+            <Button text="under development" position={[x, -400, 0]} scale={25} onClick={() => null} />
           </Suspense>
         </>
       )}

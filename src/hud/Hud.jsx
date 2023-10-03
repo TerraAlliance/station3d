@@ -13,7 +13,6 @@ const Wallet = lazy(() => import("./pages/wallet/Wallet"))
 const Stake = lazy(() => import("./pages/stake/Stake"))
 const Burn = lazy(() => import("./pages/Burn"))
 const Govern = lazy(() => import("./pages/govern/Govern"))
-const Feed = lazy(() => import("./pages/Feed"))
 const Theme = lazy(() => import("./pages/Theme"))
 
 import { useQueries, useInterchainLCDClient } from "../queries"
@@ -49,9 +48,6 @@ function Pages() {
       </Suspense>
       <Suspense>
         <Swap />
-      </Suspense>
-      <Suspense>
-        <Feed />
       </Suspense>
       <Suspense>
         <Wallet />
