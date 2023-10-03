@@ -19,7 +19,6 @@ const Theme = lazy(() => import("./pages/Theme"))
 import { useQueries, useInterchainLCDClient } from "../queries"
 
 export default function Hud() {
-  const touch = "ontouchstart" in document.documentElement
   useInterchainLCDClient()
   useQueries()
   return (
@@ -28,39 +27,47 @@ export default function Hud() {
         <OrthographicCamera makeDefault position={[0, 0, 1000]} far={10000} />
         <pointLight decay={0} distance={13000} intensity={30} position={[0, 0, 10000]} />
         <pointLight decay={0} distance={6000} intensity={25} position={[0, -2000, -7000]} />
-        <Suspense>
-          <Navigation />
-        </Suspense>
-        {!touch && (
-          <Suspense>
-            <SideWallet />
-          </Suspense>
-        )}
-        <Suspense>
-          <Home />
-        </Suspense>
-        <Suspense>
-          <Swap />
-        </Suspense>
-        <Suspense>
-          <Feed />
-        </Suspense>
-        <Suspense>
-          <Wallet />
-        </Suspense>
-        <Suspense>
-          <Burn />
-        </Suspense>
-        <Suspense>
-          <Stake />
-        </Suspense>
-        <Suspense>
-          <Govern />
-        </Suspense>
-        <Suspense>
-          <Theme />
-        </Suspense>
+        <Pages />
       </_Hud>
+    </>
+  )
+}
+
+function Pages() {
+  return (
+    <>
+      <Suspense>
+        <Navigation />
+      </Suspense>
+      {!("ontouchstart" in document.documentElement) && (
+        <Suspense>
+          <SideWallet />
+        </Suspense>
+      )}
+      <Suspense>
+        <Home />
+      </Suspense>
+      <Suspense>
+        <Swap />
+      </Suspense>
+      <Suspense>
+        <Feed />
+      </Suspense>
+      <Suspense>
+        <Wallet />
+      </Suspense>
+      <Suspense>
+        <Burn />
+      </Suspense>
+      <Suspense>
+        <Stake />
+      </Suspense>
+      <Suspense>
+        <Govern />
+      </Suspense>
+      <Suspense>
+        <Theme />
+      </Suspense>
     </>
   )
 }

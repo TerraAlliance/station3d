@@ -16,7 +16,11 @@ import Luna from "../coins/Luna"
 import Usdc from "../coins/Usdc"
 
 export default function Swap() {
-  return <AnimatedPage name='Swap'>{station.Hud.Swap.active.use() && <Page />}</AnimatedPage>
+  return (
+    <AnimatedPage name="Swap" scrollPage={false}>
+      {station.Hud.Swap.active.use() && <Page />}
+    </AnimatedPage>
+  )
 }
 
 function Page() {
@@ -48,7 +52,7 @@ function Page() {
           />
         </animated.group>
       </animated.group>
-      <Button text='Swap' position={[0, -200, 0]} scale={35} onClick={() => (tornado.start(Math.PI * 10), tornado.reset(), play_1())} />
+      <Button text="Swap" position={[0, -200, 0]} scale={35} onClick={() => (tornado.start(Math.PI * 10), tornado.reset(), play_1())} />
     </>
   )
 }

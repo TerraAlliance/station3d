@@ -33,12 +33,12 @@ export default function Stake() {
 
   return (
     <>
-      <AnimatedPage name='Stake'>{station.Hud.Stake.active.use() && <Page />}</AnimatedPage>
-      <AnimatedPage name='Validator'>{station.Hud.Validator.active.use() && <ValidatorPage />}</AnimatedPage>
-      <AnimatedPage name='Delegate'>{station.Hud.Delegate.active.use() && <Delegate />}</AnimatedPage>
-      <AnimatedPage name='Redelegate'>{station.Hud.Redelegate.active.use() && <Redelegate />}</AnimatedPage>
-      <AnimatedPage name='Undelegate'>{station.Hud.Undelegate.active.use() && <Undelegate />}</AnimatedPage>
-      <AnimatedPage name='VotingHistory'>{station.Hud.VotingHistory.active.use() && <VotingHistory />}</AnimatedPage>
+      <AnimatedPage name="Stake">{station.Hud.Stake.active.use() && <Page />}</AnimatedPage>
+      <AnimatedPage name="Validator">{station.Hud.Validator.active.use() && <ValidatorPage />}</AnimatedPage>
+      <AnimatedPage name="Delegate">{station.Hud.Delegate.active.use() && <Delegate />}</AnimatedPage>
+      <AnimatedPage name="Redelegate">{station.Hud.Redelegate.active.use() && <Redelegate />}</AnimatedPage>
+      <AnimatedPage name="Undelegate">{station.Hud.Undelegate.active.use() && <Undelegate />}</AnimatedPage>
+      <AnimatedPage name="VotingHistory">{station.Hud.VotingHistory.active.use() && <VotingHistory />}</AnimatedPage>
     </>
   )
 }
@@ -86,9 +86,9 @@ function Page() {
     <>
       {position < 8 && (
         <>
-          <Button text='Grid' position={[-200, size.height / 2 - 100, 0]} scale={35} selectedColor='yellow' onClick={() => (setLocation("grid"), play())} />
-          <Button text='Sphere' position={[0, size.height / 2 - 100, 0]} scale={35} selectedColor='yellow' onClick={() => (setLocation("sphere"), play())} />
-          <Button text='Rewards' position={[200, size.height / 2 - 100, 0]} scale={35} selectedColor='yellow' onClick={() => (setLocation("rewards"), play())} />
+          <Button text="Grid" position={[-200, size.height / 2 - 100, 0]} scale={35} selectedColor="yellow" onClick={() => (setLocation("grid"), play())} />
+          <Button text="Sphere" position={[0, size.height / 2 - 100, 0]} scale={35} selectedColor="yellow" onClick={() => (setLocation("sphere"), play())} />
+          <Button text="Rewards" position={[200, size.height / 2 - 100, 0]} scale={35} selectedColor="yellow" onClick={() => (setLocation("rewards"), play())} />
         </>
       )}
       {
@@ -96,24 +96,24 @@ function Page() {
           grid: (
             <>
               <Button
-                text='Name'
+                text="Name"
                 position={[-175, size.height / 2 - 175, 0]}
                 scale={20}
-                selectedColor='yellow'
+                selectedColor="yellow"
                 onClick={() => (station.Hud.Stake.sort.set((p) => (p === "nmsort+" ? "nmsort-" : "nmsort+")), play())}
               />
               <Button
-                text='Voting Power'
+                text="Voting Power"
                 position={[0, size.height / 2 - 175, 0]}
                 scale={20}
-                selectedColor='yellow'
+                selectedColor="yellow"
                 onClick={() => (station.Hud.Stake.sort.set((p) => (p === "vpsort+" ? "vpsort-" : "vpsort+")), play())}
               />
               <Button
-                text='Commission'
+                text="Commission"
                 position={[175, size.height / 2 - 175, 0]}
                 scale={20}
-                selectedColor='yellow'
+                selectedColor="yellow"
                 onClick={() => (station.Hud.Stake.sort.set((p) => (p === "cosort+" ? "cosort-" : "cosort+")), play())}
               />
               <Validators validators={validators} sort={sort || "vpsort+"} xspacing={xspacing} yspacing={yspacing} play={play} columns={columns} position={position} />
@@ -122,24 +122,24 @@ function Page() {
           sphere: (
             <>
               <Button
-                text='Name'
+                text="Name"
                 position={[-175, size.height / 2 - 175, 0]}
                 scale={20}
-                selectedColor='yellow'
+                selectedColor="yellow"
                 onClick={() => (station.Hud.Stake.sort.set((p) => (p === "nmsort+" ? "nmsort-" : "nmsort+")), play())}
               />
               <Button
-                text='Voting Power'
+                text="Voting Power"
                 position={[0, size.height / 2 - 175, 0]}
                 scale={20}
-                selectedColor='yellow'
+                selectedColor="yellow"
                 onClick={() => (station.Hud.Stake.sort.set((p) => (p === "vpsort+" ? "vpsort-" : "vpsort+")), play())}
               />
               <Button
-                text='Commission'
+                text="Commission"
                 position={[175, size.height / 2 - 175, 0]}
                 scale={20}
-                selectedColor='yellow'
+                selectedColor="yellow"
                 onClick={() => (station.Hud.Stake.sort.set((p) => (p === "cosort+" ? "cosort-" : "cosort+")), play())}
               />
               <ValidatorSphere validators={validators} sort={sort || "vpsort+"} xspacing={xspacing} yspacing={yspacing} play={play} columns={columns} position={position} />
@@ -328,10 +328,10 @@ function ValidatorPage() {
           </p>
         </div>
       </Html>
-      <Button text='Delegate' position={[-200, -250, 0]} scale={30} onClick={() => (station.Hud.event.set("Delegate"), play())} />
-      <Button text='Redelegate' position={[0, -250, 0]} scale={30} onClick={() => (station.Hud.event.set("Redelegate"), play())} />
-      <Button text='Undelegate' position={[200, -250, 0]} scale={30} onClick={() => (station.Hud.event.set("Undelegate"), play())} />
-      <Button text='Voting History' position={[0, -325, 0]} scale={30} onClick={() => (station.Hud.event.set("VotingHistory"), play())} />
+      <Button text="Delegate" position={[-200, -250, 0]} scale={30} onClick={() => (station.Hud.event.set("Delegate"), play())} />
+      <Button text="Redelegate" position={[0, -250, 0]} scale={30} onClick={() => (station.Hud.event.set("Redelegate"), play())} />
+      <Button text="Undelegate" position={[200, -250, 0]} scale={30} onClick={() => (station.Hud.event.set("Undelegate"), play())} />
+      <Button text="Voting History" position={[0, -325, 0]} scale={30} onClick={() => (station.Hud.event.set("VotingHistory"), play())} />
     </>
   )
 }
@@ -356,7 +356,7 @@ function Delegate() {
 
   return (
     <>
-      <Html position={[0, 75, 0]} style={{ fontSize: 40 }} pointerEvents='auto'>
+      <Html position={[0, 75, 0]} style={{ fontSize: 40 }} pointerEvents="auto">
         <div style={{ height: "100px", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <p style={{ overflow: "hidden", textOverflow: "ellipsis", maxWidth: "700px", fontWeight: "bold" }}>{validator?.description.moniker}</p>
         </div>
@@ -364,11 +364,11 @@ function Delegate() {
           <span>Amount: </span>
           <input
             style={{ fontSize: 40, fontFamily: "Alien League", fontWeight: "bold", color: station.Hud.text.color.use(), backgroundColor: remainingBalance > 0 ? "black" : "red", borderRadius: "15px" }}
-            type='numeric'
+            type="number"
             value={amount}
             onChange={(ev) => setAmount(ev.target.value)}
-            maxLength='10'
-            size='15'
+            maxLength="10"
+            size="15"
           />
           <p>
             Fee: <b>{<AnimatedText text={finalgas ? (finalgas / 1000000).toString() : "Calculating..."} chars={"0123456789"} speed={20} />}</b> LUNA
@@ -379,7 +379,7 @@ function Delegate() {
         </div>
       </Html>
       <Button
-        text='Delegate'
+        text="Delegate"
         position={[0, -120, 0]}
         scale={35}
         onClick={() => amount > 0 && remainingBalance > 0 && finalgas && post({ ...msg, fee: new Fee(gas, new Coins([new Coin("uluna", finalgas)])) })}
@@ -410,16 +410,16 @@ function Undelegate() {
 
   return (
     <>
-      <Html position={[0, 75, 0]} style={{ fontSize: 40 }} pointerEvents='auto'>
+      <Html position={[0, 75, 0]} style={{ fontSize: 40 }} pointerEvents="auto">
         <p style={{ overflow: "hidden", textOverflow: "ellipsis", maxWidth: "700px", fontWeight: "bold" }}>{validator?.description.moniker}</p>
         <span>Amount: </span>
         <input
           style={{ fontSize: 40, fontFamily: "Alien League", fontWeight: "bold", color: station.Hud.text.color.use(), backgroundColor: remainingBalance > 0 ? "black" : "red", borderRadius: "15px" }}
-          type='numeric'
+          type="number"
           value={amount}
           onChange={(ev) => setAmount(ev.target.value)}
-          maxLength='10'
-          size='15'
+          maxLength="10"
+          size="15"
         />
         <p>
           Fee: <b>{<AnimatedText text={finalgas ? (finalgas / 1000000).toString() : "Calculating..."} chars={"0123456789"} speed={20} />}</b> LUNA
@@ -429,7 +429,7 @@ function Undelegate() {
         </p>
       </Html>
       <Button
-        text='Undelegate'
+        text="Undelegate"
         position={[0, -120, 0]}
         scale={35}
         onClick={() => amount > 0 && remainingBalance > 0 && finalgas && post({ ...msg, fee: new Fee(gas, new Coins([new Coin("uluna", finalgas)])) })}
@@ -464,7 +464,7 @@ function Redelegate() {
 
   return (
     <>
-      <Html position={[0, 75, 0]} style={{ fontSize: 40 }} pointerEvents='auto'>
+      <Html position={[0, 75, 0]} style={{ fontSize: 40 }} pointerEvents="auto">
         <p>
           <span>From: </span>
           <select
@@ -496,11 +496,11 @@ function Redelegate() {
         <span>Amount: </span>
         <input
           style={{ fontSize: 40, fontFamily: "Alien League", fontWeight: "bold", color: station.Hud.text.color.use(), backgroundColor: remainingBalance > 0 ? "black" : "red", borderRadius: "15px" }}
-          type='numeric'
+          type="number"
           value={amount}
           onChange={(ev) => setAmount(ev.target.value)}
-          maxLength='10'
-          size='15'
+          maxLength="10"
+          size="15"
         />
         <p>
           Fee: <b>{<AnimatedText text={finalgas ? (finalgas / 1000000).toString() : "Calculating..."} chars={"0123456789"} speed={20} />}</b> LUNA
@@ -510,7 +510,7 @@ function Redelegate() {
         </p>
       </Html>
       <Button
-        text='Redelegate'
+        text="Redelegate"
         position={[0, -180, 0]}
         scale={35}
         onClick={() => amount > 0 && remainingBalance > 0 && finalgas && post({ ...msg, fee: new Fee(gas, new Coins([new Coin("uluna", finalgas)])) })}
@@ -546,7 +546,7 @@ function Proposals({ proposals }) {
 
   return (
     <>
-      {position < 2 && <Title text='Voting History' />}
+      {position < 2 && <Title text="Voting History" />}
       {proposals?.slice(0, position + 6).map((p, i) => i >= position - 2 && <Proposal proposal={p} index={i} key={i} columns={columns} xspacing={xspacing} yspacing={yspacing} />)}
     </>
   )

@@ -29,7 +29,7 @@ function Tx({ tx, index, columns, xspacing, yspacing }) {
   }
 
   return (
-    <group position={[(index % columns) * xspacing - ((columns - 1) * xspacing) / 2, -Math.floor(index / columns) * yspacing + size.height / 2 - 300, 0]}>
+    <group position={[(index % columns) * xspacing - ((columns - 1) * xspacing) / 2, -Math.floor(index / columns) * yspacing + size.height / 2 - 250, 0]}>
       <Terra position={[0, 0, 0]} scale={60} animate={true} />
       <Html position={[0, -140, 0]} style={{ fontSize: 25, lineHeight: 0.1 }}>
         <span style={{ fontWeight: "bold", fontSize: 30 }}>{type} </span>

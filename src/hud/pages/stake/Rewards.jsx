@@ -33,7 +33,7 @@ export default function Rewards() {
         ?.slice(0, position + 24)
         .map(
           (c, i) =>
-            i >= position - 8 && (
+            i >= position - 12 && (
               <Asset
                 key={i}
                 Component={c.denom === "uluna" ? Lunc : Terra}

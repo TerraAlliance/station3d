@@ -55,7 +55,7 @@ function Coin({ Component, coin, index, columns, xspacing, yspacing, flag, curre
   const coinBalance = Math.floor((coin.amount / 1000000) * 100) / 100
 
   return (
-    <group position={[(index % columns) * xspacing - ((columns - 1) * xspacing) / 2, -Math.floor(index / columns) * yspacing + size.height / 2 - 300, 0]}>
+    <group position={[(index % columns) * xspacing - ((columns - 1) * xspacing) / 2, -Math.floor(index / columns) * yspacing + size.height / 2 - 250, 0]}>
       <Suspense>
         <Component position={[0, 0, 0]} scale={30} flag={currencies.indexOf(flag) > 0 ? currencies.indexOf(flag) : null} animate />
       </Suspense>

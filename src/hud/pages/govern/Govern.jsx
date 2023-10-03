@@ -6,8 +6,8 @@ import Proposal from "./Proposal"
 export default function Govern() {
   return (
     <>
-      <AnimatedPage name='Govern'>{station.Hud.Govern.active.use() && <Proposals />}</AnimatedPage>
-      <AnimatedPage name='Proposal'>{station.Hud.Proposal.active.use() && <Proposal />}</AnimatedPage>
+      <AnimatedPage name="Govern">{station.Hud.Govern.active.use() && <Proposals />}</AnimatedPage>
+      <AnimatedPage name="Proposal">{station.Hud.Proposal.active.use() && <Proposal />}</AnimatedPage>
     </>
   )
 }

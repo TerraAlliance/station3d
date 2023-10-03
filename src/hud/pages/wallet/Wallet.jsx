@@ -9,10 +9,16 @@ import sound from "/sounds/sound_5.mp3"
 
 import History from "./History"
 import Assets from "./Assets"
+import Send from "./Send"
 
 export default function Wallet() {
   const txs = station.data.tx.history.use()
-  return <AnimatedPage name='Wallet'>{station.Hud.Wallet.active.use() && <Page txs={txs} />}</AnimatedPage>
+  return (
+    <>
+      <AnimatedPage name="Wallet">{station.Hud.Wallet.active.use() && <Page txs={txs} />}</AnimatedPage>
+      <AnimatedPage name="Send" scrollPage={false}>{station.Hud.Send.active.use() && <Send />}</AnimatedPage>
+    </>
+  )
 }
 
 function Page({ txs }) {

@@ -33,7 +33,7 @@ export default function SideWallet() {
       <Suspense>
         <Button text={connected ? "Disconnect" : "Connect"} position={[x, 275, 0]} scale={35} width={140} active={connected} onClick={() => (connected ? disconnect() : connect())} />
         <Button text={show ? "Hide" : "Show"} position={[x, 200, 0]} scale={20} onClick={() => (setShow(!show), play())} />
-        <Button text={"Send"} position={[x, -250, 0]} scale={35} onClick={() => null} />
+        <Button text={"Send"} position={[x, -250, 0]} scale={35} onClick={() => (station.Hud.event.set("Send"), play())} />
       </Suspense>
       <Suspense>
         <Coins x={x} show={show} />
@@ -61,10 +61,10 @@ function Coins({ x, show }) {
 function MainCoins({ x, show }) {
   return (
     <>
-      <Coin Component={Luna} position={[x, 135, 0]} show={show} currency='uluna' />
-      <Coin Component={Usdc} position={[x, 45, 0]} show={show} currency='usdc' />
-      <Coin Component={Usdt} position={[x, -45, 0]} show={show} currency='usdt' />
-      <Coin Component={Dai} position={[x, -135, 0]} show={show} currency='dai' />
+      <Coin Component={Luna} position={[x, 135, 0]} show={show} currency="uluna" />
+      <Coin Component={Usdc} position={[x, 45, 0]} show={show} currency="usdc" />
+      <Coin Component={Usdt} position={[x, -45, 0]} show={show} currency="usdt" />
+      <Coin Component={Dai} position={[x, -135, 0]} show={show} currency="dai" />
     </>
   )
 }
@@ -72,7 +72,7 @@ function MainCoins({ x, show }) {
 function ClassicCoins({ x, show }) {
   return (
     <>
-      <Coin Component={Lunc} position={[x, 135, 0]} show={show} currency='uluna' />
+      <Coin Component={Lunc} position={[x, 135, 0]} show={show} currency="uluna" />
       <Coin Component={Terra} position={[x, 45, 0]} show={show} flag={0} />
       <Coin Component={Terra} position={[x, -45, 0]} show={show} flag={16} />
       <Coin Component={Terra} position={[x, -135, 0]} show={show} flag={18} />
@@ -95,7 +95,7 @@ function Coin({ position, flag, Component, currency, show }) {
       <Suspense>
         <Component position={[-50, 0, 0]} scale={30} flag={activeFlag} setFlag={setActiveFlag} />
       </Suspense>
-      <Html transform distanceFactor={400} style={{ width: "150px" }} position={[70, 0, 0]} pointerEvents='none'>
+      <Html transform distanceFactor={400} style={{ width: "150px" }} position={[70, 0, 0]} pointerEvents="none">
         <span
           style={{
             userSelect: "none",
