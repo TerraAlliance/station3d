@@ -53,9 +53,9 @@ function Validator({ validator, index, columns, xspacing, yspacing, play }) {
 
   return (
     <group position={[(index % columns) * xspacing - ((columns - 1) * xspacing) / 2, -Math.floor(index / columns) * yspacing + size.height / 2 - 300, 0]}>
-      <Html style={{ fontSize: 20 }} position={[0, -110, 0]}>
-        <p style={{ overflow: "hidden", textOverflow: "ellipsis", width: "180px", fontWeight: "bold", margin: "0px" }}>{validator.description.moniker}</p>
-        <p style={{ marginTop: "10px" }}>
+      <Html style={{ fontSize: 20, border: "2px solid #181818", borderRadius: "10px", height: "60px", width: "190px" }} position={[0, -110, 0]}>
+        <p style={{ overflow: "hidden", textOverflow: "ellipsis", width: "180px", fontWeight: "bold", margin: "5px" }}>{validator.description.moniker}</p>
+        <p style={{ margin: "5px", marginTop: "10px" }}>
           <span>
             VP: <b>{validator.jailed ? 0 : ((Math.floor(validator?.tokens.toString() / 1000000) / (staked / 1000000)) * 100).toFixed(2)}% </b>
           </span>

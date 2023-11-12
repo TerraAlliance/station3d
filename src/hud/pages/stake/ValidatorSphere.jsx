@@ -30,7 +30,7 @@ const sortingLogic = {
   "nmsort-": (a, b) => b.description.moniker.localeCompare(a.description.moniker),
 }
 
-export default function ValidatorSphere({ validators, sort, xspacing, yspacing, play, columns }) {
+export default function ValidatorSphere({ validators, sort, play }) {
   const group = useRef()
 
   useFrame((state, delta) => {
@@ -45,7 +45,7 @@ export default function ValidatorSphere({ validators, sort, xspacing, yspacing, 
       </mesh>
       <group ref={group}>
         {validators?.sort(sortingLogic[sort]).map((v, i) => (
-          <ValidatorSpheres validator={v} index={i} key={i} columns={columns} xspacing={xspacing} yspacing={yspacing} play={play} totalValidators={validators.length - 1} />
+          <ValidatorSpheres validator={v} index={i} key={i} play={play} totalValidators={validators.length - 1} />
         ))}
       </group>
     </>

@@ -42,7 +42,7 @@ function Proposal({ proposal, index, columns, xspacing, yspacing, play }) {
     <group position={[(index % columns) * xspacing - ((columns - 1) * xspacing) / 2, -Math.floor(index / columns) * yspacing + size.height / 2 - 150, 0]}>
       <Terra position={[0, 0, 0]} scale={60} animate={true} onClick={onClick} />
       <VotingBar position={[0, -90, 0]} proposal={proposal} length={250} radius={6} quorum={parameters?.tally_params.quorum.toString()} />
-      <Html position={[0, -140, 0]}>{<p style={{ fontSize: 25, width: "400px", height: "50px", fontWeight: "bold", whiteSpace: "normal" }}>{proposal.content.title}</p>}</Html>
+      <Html position={[0, -140, 0]}>{<p style={{ fontSize: 25, width: "400px", height: "50px", fontWeight: "bold", whiteSpace: "normal" }}>{proposal?.content?.title}</p>}</Html>
     </group>
   )
 }

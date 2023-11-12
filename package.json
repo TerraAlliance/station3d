@@ -19,7 +19,7 @@
     "@terra-money/wallet-kit": "^1.0.15",
     "@types/three": "^0.156.0",
     "@uidotdev/usehooks": "^2.3.0",
-    "buffer": "^6.0.3",
+    "buffer": "^6.0+.3",
     "linkify-string": "^4.1.1",
     "linkifyjs": "^4.1.1",
     "react": "^18.2.0",

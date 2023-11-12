@@ -28,7 +28,7 @@ export default function Rewards() {
 
   return (
     <>
-      <WithdrawRewards rewards />
+      <WithdrawRewards />
       {coinArray
         ?.slice(0, position + 24)
         .map(
@@ -60,29 +60,35 @@ function WithdrawRewards() {
 
   const validators = rewards && Object.keys(rewards.rewards).filter((address) => rewards.rewards[address]._coins.uluna?.amount.toString() >= 1)
 
-  const msgs = validators?.map((address) => new MsgWithdrawDelegatorReward(connected?.addresses[chainID], address))
-  const simMsg = { chainID: chainID, msgs: msgs }
-  const gas = useGas(simMsg)
+  const msg = { chainID: chainID, msgs: validators?.map((address) => new MsgWithdrawDelegatorReward(connected?.addresses[chainID], address)) }
+  const gas = useGas(msg)
   const gasPrice = useGasPrice()
 
   const { post } = useWallet()
-  const msg = { chainID: chainID, msgs: msgs }
 
   return (
     <group position={[0, size.height / 2 - 215, 0]}>
-      <Html position={[0, -70, 0]} style={{ fontSize: 40 }}>
-        <p>
-          Fee: <b>{<AnimatedText text={gas ? ((gas * gasPrice) / 1000000).toString() : "Calculating..."} chars={"0123456789"} speed={20} />}</b> LUNA
-        </p>
-      </Html>
+      <FeeText gas={gas} gasPrice={gasPrice} />
       <Button
-        text='Withdraw All Rewards'
+        text="Withdraw All Rewards"
         position={[0, 0, 0]}
         scale={35}
-        selectedColor='yellow'
+        selectedColor="yellow"
         onClick={() => post({ ...msg, fee: new Fee(gas, new Coins([new Coin("uluna", (gas * gasPrice).toFixed(0))])) })}
       />
     </group>
+  )
+}
+
+function FeeText({ gas, gasPrice }) {
+  const feetext = gas ? ((gas * gasPrice) / 1000000).toFixed(6).toString() : "Calculating..."
+
+  return (
+    <Html position={[0, -70, 0]} style={{ fontSize: 40 }}>
+      <p>
+        Fee: <b>{<AnimatedText text={feetext} chars={"0123456789"} speed={20} />}</b> LUNA
+      </p>
+    </Html>
   )
 }
 
@@ -99,7 +105,7 @@ function Asset({ Component, coin, index, columns, xspacing, yspacing, flag, curr
       <Suspense>
         <Component position={[0, 0, 0]} scale={30} flag={currencies.indexOf(flag) > 0 ? currencies.indexOf(flag) : null} animate />
       </Suspense>
-      <Html transform distanceFactor={400} style={{ width: "150px", textAlign: "left" }} position={[50, -60, 0]} pointerEvents='none'>
+      <Html transform distanceFactor={400} style={{ width: "150px", textAlign: "left" }} position={[50, -60, 0]} pointerEvents="none">
         <span style={{ fontSize: 26 }}>
           <b>
             {coinBalance ? <AnimatedText text={show ? coinBalance.toString() : "---"} chars={"0123456789"} speed={20} /> : <AnimatedText text={show ? "0" : "---"} chars={"0123456789"} speed={20} />}

@@ -11,7 +11,6 @@ station.Hud.VotingHistory.scroll.set(0)
 
 window.onwheel = (ev) => {
   station.Hud[station.Hud.event.get()].scroll.set((prev) => Math.max(prev + ev.deltaY / 2, 0))
-  console.log(ev.deltaY)
   switch (station.Hud.event.get()) {
     case "Validator":
       station.Hud.event.set("Stake")

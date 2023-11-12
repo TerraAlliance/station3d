@@ -50,7 +50,7 @@ function Page() {
 
   return (
     <>
-      {position < 8 && (
+      {position < 6 && (
         <>
           <Button text="Grid" position={[-200, size.height / 2 - 100, 0]} scale={35} selectedColor="yellow" onClick={() => (setLocation("grid"), play())} />
           <Button text="Sphere" position={[0, size.height / 2 - 100, 0]} scale={35} selectedColor="yellow" onClick={() => (setLocation("sphere"), play())} />
@@ -61,14 +61,14 @@ function Page() {
         {
           grid: (
             <>
-              <SortMenu />
+              {position < 6 && <SortMenu />}
               <Validators validators={validators} sort={sort || "vpsort+"} xspacing={xspacing} yspacing={yspacing} play={play} columns={columns} position={position} />
             </>
           ),
           sphere: (
             <>
-              <SortMenu />
-              <ValidatorSphere validators={validators} sort={sort || "vpsort+"} xspacing={xspacing} yspacing={yspacing} play={play} columns={columns} position={position} />
+              {position < 6 && <SortMenu />}
+              <ValidatorSphere validators={validators} sort={sort || "vpsort+"} play={play} />
             </>
           ),
           rewards: <Rewards />,

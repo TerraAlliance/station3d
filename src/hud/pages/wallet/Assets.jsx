@@ -11,7 +11,7 @@ import Terra from "../../coins/Terra"
 import { station } from "../../../state"
 
 export default function Assets() {
-  const columns = "ontouchstart" in document.documentElement ? 1 : 4
+  const columns = "ontouchstart" in document.documentElement ? 1 : 5
   const xspacing = 175
   const yspacing = 130
   const scroll = station.Hud.Wallet.scroll.use()
@@ -24,10 +24,10 @@ export default function Assets() {
   return (
     <>
       {coinArray
-        ?.slice(0, position + 24)
+        ?.slice(0, position + 30)
         .map(
           (c, i) =>
-            i >= position - 8 && (
+            i >= position - 5 && (
               <Coin
                 key={i}
                 Component={c.denom === "uluna" ? Lunc : c.denom.slice(0, 3) === "ibc" ? Ibc : Terra}

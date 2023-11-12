@@ -99,7 +99,7 @@ export function useGas(msg) {
       setGas(t.auth_info.fee.gas_limit)
       setFetching(false)
     }
-    !fetching && fetchGasLimit()
+    !fetching && msg.msgs && fetchGasLimit()
   }, [msg])
 
   return gas
@@ -108,7 +108,7 @@ export function useGas(msg) {
 export function useGasPrice() {
   const chainID = station.chainID.use()
   const { network } = useWallet()
-  return network[chainID]?.gasPrices["uluna"]
+  if (network) return network[chainID]?.gasPrices["uluna"]
 }
 
 export function useTaxRate() {

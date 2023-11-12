@@ -31,9 +31,9 @@ export default function SideWallet() {
         <Wallet3d position={[x, 400, 0]} scale={3} />
       </Suspense>
       <Suspense>
-        <Button text={connected ? "Disconnect" : "Connect"} position={[x, 275, 0]} scale={35} width={140} active={connected} onClick={() => (connected ? disconnect() : connect())} />
+        <Button text={connected ? "Disconnect" : "Connect"} position={[x, 250, 0]} scale={35} width={140} active={connected} onClick={() => (connected ? disconnect() : connect())} />
         <Button text={show ? "Hide" : "Show"} position={[x, 200, 0]} scale={20} onClick={() => (setShow(!show), play())} />
-        <Button text={"Send"} position={[x, -250, 0]} scale={35} onClick={() => (station.Hud.event.set("Send"), play())} />
+        <Button text={"Send"} position={[x, -225, 0]} scale={35} onClick={() => (station.Hud.event.set("Send"), play())} />
       </Suspense>
       <Suspense>
         <Coins x={x} show={show} />
@@ -61,10 +61,10 @@ function Coins({ x, show }) {
 function MainCoins({ x, show }) {
   return (
     <>
-      <Coin Component={Luna} position={[x, 135, 0]} show={show} currency="uluna" />
-      <Coin Component={Usdc} position={[x, 45, 0]} show={show} currency="usdc" />
-      <Coin Component={Usdt} position={[x, -45, 0]} show={show} currency="usdt" />
-      <Coin Component={Dai} position={[x, -135, 0]} show={show} currency="dai" />
+      <Coin Component={Luna} position={[x, 120, 0]} show={show} currency="uluna" />
+      <Coin Component={Usdc} position={[x, 40, 0]} show={show} currency="usdc" />
+      <Coin Component={Usdt} position={[x, -40, 0]} show={show} currency="usdt" />
+      <Coin Component={Dai} position={[x, -120, 0]} show={show} currency="dai" />
     </>
   )
 }
@@ -72,10 +72,10 @@ function MainCoins({ x, show }) {
 function ClassicCoins({ x, show }) {
   return (
     <>
-      <Coin Component={Lunc} position={[x, 135, 0]} show={show} currency="uluna" />
-      <Coin Component={Terra} position={[x, 45, 0]} show={show} flag={0} />
-      <Coin Component={Terra} position={[x, -45, 0]} show={show} flag={16} />
-      <Coin Component={Terra} position={[x, -135, 0]} show={show} flag={18} />
+      <Coin Component={Lunc} position={[x, 120, 0]} show={show} currency="uluna" />
+      <Coin Component={Terra} position={[x, 40, 0]} show={show} flag={0} />
+      <Coin Component={Terra} position={[x, -40, 0]} show={show} flag={16} />
+      <Coin Component={Terra} position={[x, -120, 0]} show={show} flag={18} />
     </>
   )
 }

@@ -32,7 +32,6 @@ export default function Navigation() {
             <Button text="Burn" position={[x, -60, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Burn"), play())} />
             <Button text="Govern" position={[x, -120, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Govern"), play())} />
             <Button text="Theme" position={[x, -180, 0]} scale={35} width={140} onClick={() => (station.Hud.event.set("Theme"), play())} />
-            <Button text="under development" position={[x, -400, 0]} scale={25} onClick={() => null} />
           </Suspense>
         </>
       )}
